@@ -1,0 +1,50 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Demo REST API",
+    "version" : "1.0.0",
+    "title" : "Demo REST API",
+    "contact" : {
+      "name" : "Cognizant EAS-IBM-IPM",
+      "email" : "test@cognizant.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host" : "icp-proxy.apps.169-61-227-230.nip.io:30663",
+  "basePath" : "/demo/v1",
+  "paths" : {
+    "/getSample" : {
+      "get" : {
+        "tags" : [ "Demo API" ],
+        "summary" : "Sample Get API",
+        "description" : "Multiple status values can be provided with comma separated strings",
+        "operationId" : "sampleGetOperation",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/sampleGetResponseObject"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "sampleGetResponseObject" : {
+      "type" : "object",
+      "properties" : {
+        "description" : {
+          "type" : "string",
+          "format" : "double"
+        }
+      },
+      "title" : "sampleGetResponseObject"
+    }
+  },
+  "schemes" : [ "http", "https" ]
+}
