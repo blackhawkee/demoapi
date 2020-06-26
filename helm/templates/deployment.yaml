@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demoapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demoapi
+  template:
+    metadata:
+      labels:
+        app: demoapi
+    spec:
+      containers:
+      - name: demoapi
+        image: blackhawkee/demoapi:5
+        ports:
+        - containerPort: 7600
+        - containerPort: 7600
+        - containerPort: 7600

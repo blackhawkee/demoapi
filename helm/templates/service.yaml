@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: demoapi
+spec:
+  type: NodePort
+  ports:
+  - name: "integrationserviceport"
+    port: 7600
+    targetPort: 7600
+    nodePort: 31001
+  - name: "httpport"
+    port: 7800
+    targetPort: 7800
+    nodePort: 31002
+  - name: "httpsport"
+    port: 7843
+    targetPort: 7843
+    nodePort: 31003   
+  selector:
+    app: demoapi
