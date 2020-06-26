@@ -31,7 +31,8 @@ pipeline {
                 sh "echo 'Deploy Custom Image with Helm Chart'" 
                 sh 'helm list'
                 sh "helm lint ./${HELM_CHART_DIRECTORY}"
-                sh "helm upgrade --wait --timeout 60 --set image.tag=${BUILD_NUMBER} ${HELM_APP_NAME} ./${HELM_CHART_DIRECTORY}"
+                //sh "helm upgrade --wait --timeout 60 --set image.tag=${BUILD_NUMBER} ${HELM_APP_NAME} ./${HELM_CHART_DIRECTORY}"
+                sh "helm upgrade --wait --timeout 60 ${HELM_APP_NAME} ./${HELM_CHART_DIRECTORY}"
                 sh "helm list | grep ${HELM_APP_NAME}"
             }
         }
