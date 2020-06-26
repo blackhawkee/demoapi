@@ -3,6 +3,7 @@ def HELM_APP_NAME = "DemoAPI"
 def HELM_CHART_DIRECTORY = "/var/lib/jenkins/workspace/demoapi_pipeline/helm"
 pipeline { 
     agent any 
+    options { timestamps () }
     stages {
         stage('Pull Standard Image') { 
             steps { 
