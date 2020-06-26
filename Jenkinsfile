@@ -14,7 +14,8 @@ pipeline {
         stage('Build Custom Image'){
             steps {
                 sh "echo 'Build custom image with bar file deployed to the standard image(ibmcom/ace)'" 
-                sh "docker build -t ${REPOSITORY_URI}:${BUILD_NUMBER} --pull=true /var/lib/jenkins/workspace/demoapi_pipeline" 
+                //sh "docker build -t ${REPOSITORY_URI}:${BUILD_NUMBER} --pull=true /var/lib/jenkins/workspace/demoapi_pipeline" 
+                sh "docker build -t ${REPOSITORY_URI}:latest --pull=true /var/lib/jenkins/workspace/demoapi_pipeline" 
             }
         }
         stage('Push Custom Image') {
@@ -22,7 +23,8 @@ pipeline {
                 sh "echo 'Pushing Custom image to Docker Hub...'"
                 withCredentials([usernamePassword(credentialsId: 'd201a9e2-5b7d-466f-9fa3-bc95a96784be', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                   sh 'docker image ls'
-                  sh "docker push ${REPOSITORY_URI}:${BUILD_NUMBER}"
+                  //sh "docker push ${REPOSITORY_URI}:${BUILD_NUMBER}"
+                  sh "docker push ${REPOSITORY_URI}:latest"
               }
             }
         }
