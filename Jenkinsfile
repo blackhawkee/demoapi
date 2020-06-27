@@ -36,7 +36,8 @@ pipeline {
                 //sh "helm upgrade --wait --timeout 60 --set image.tag=${BUILD_NUMBER} ${HELM_APP_NAME} ./${HELM_CHART_DIRECTORY}"
                 //sh "helm upgrade --wait --timeout 60 ${HELM_APP_NAME} ./${HELM_CHART_DIRECTORY}"
                 //sh "helm install --name ${HELM_APP_NAME} ${HELM_CHART_DIRECTORY}"
-                sh "if [ ! -z "$helm list | grep ${HELM_APP_NAME}" ]; then helm upgrade ${HELM_APP_NAME} ${HELM_CHART_DIRECTORY} else helm install --name ${HELM_APP_NAME} ${HELM_CHART_DIRECTORY} fi"
+                //sh "if [ ! -z "$helm list | grep ${HELM_APP_NAME}" ]; then helm upgrade ${HELM_APP_NAME} ${HELM_CHART_DIRECTORY} else helm install --name ${HELM_APP_NAME} ${HELM_CHART_DIRECTORY} fi"
+                sh "if [ ! -z "$helm list | grep demoapi" ]; then helm upgrade ${HELM_APP_NAME} ${HELM_CHART_DIRECTORY} else helm install --name ${HELM_APP_NAME} ${HELM_CHART_DIRECTORY} fi"
                 sh "helm list | grep ${HELM_APP_NAME}"
             }
         }
