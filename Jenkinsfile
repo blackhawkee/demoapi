@@ -1,5 +1,5 @@
 def REPOSITORY_URI = "blackhawkee/demoapi"
-def HELM_APP_NAME = "DemoAPI"
+def HELM_APP_NAME = "demoapi"
 def HELM_CHART_DIRECTORY = "/var/lib/jenkins/workspace/demoapi_pipeline/helm"
 pipeline { 
     agent any 
