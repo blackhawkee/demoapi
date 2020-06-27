@@ -39,11 +39,11 @@ pipeline {
                 //sh "if [ ! -z "$helm list | grep ${HELM_APP_NAME}" ]; then helm upgrade ${HELM_APP_NAME} ${HELM_CHART_DIRECTORY} else helm install --name ${HELM_APP_NAME} ${HELM_CHART_DIRECTORY} fi"
                 //sh 'if [ ! -z "$helm list | grep demoapi" ]; then helm upgrade ${HELM_APP_NAME} ${HELM_CHART_DIRECTORY} fi'
                 //sh 'if [ -z "$helm list | grep demoapi" ]; then helm install --name demoapi ${HELM_CHART_DIRECTORY} fi'
-                sh 'if [ ! -z "$helm list | grep demoapi" ]; then
+                sh "if [ ! -z '$helm list | grep demoapi' ]; then
                    helm upgrade demoapi /var/lib/jenkins/workspace/demoapi_pipeline/helm
                 else
                    helm install --name demoapi /var/lib/jenkins/workspace/demoapi_pipeline/helm
-                fi'
+                fi"
                 sh "helm list | grep ${HELM_APP_NAME}"
             }
         }
