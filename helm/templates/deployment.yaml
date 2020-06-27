@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: demoapi
-        image: blackhawkee/demoapi:5
+        image: blackhawkee/demoapi:latest
         ports:
         - containerPort: 7600
-        - containerPort: 7600
-        - containerPort: 7600
+        - containerPort: 7800
+        - containerPort: 7843
